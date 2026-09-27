@@ -1,0 +1,17 @@
+@import "../base/variables";
+
+.related-posts {
+  padding-top: 24px;
+}
+
+.related-posts__title {
+  @include container;
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: $color-white;
+
+  @include respond-up($breakpoint-lg) {
+    font-size: 28px;
+  }
+}

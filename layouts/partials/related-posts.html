@@ -1,0 +1,25 @@
+{{ $categorySlug := "" }}
+{{ with .Params.category }}{{ with index . 0 }}{{ $categorySlug = . }}{{ end }}{{ end }}
+{{ $related := slice }}
+{{ if $categorySlug }}
+  {{ $candidates := where site.RegularPages "Section" "blog" }}
+  {{ $candidates = where $candidates "Permalink" "ne" .Permalink }}
+  {{ range $candidates.ByDate.Reverse }}
+    {{ $ownSlug := "" }}
+    {{ with .Params.category }}{{ with index . 0 }}{{ $ownSlug = . }}{{ end }}{{ end }}
+    {{ if eq $ownSlug $categorySlug }}
+      {{ $related = $related | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $related = first 3 $related }}
+{{ end }}
+{{ if $related }}
+<section class="related-posts">
+  <h2 class="related-posts__title">Пов'язані записи</h2>
+  <div class="post-grid">
+    {{ range $related }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
