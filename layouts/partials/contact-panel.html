@@ -1,5 +1,6 @@
 {{ $form := .form }}
 {{ $titleId := .titleId | default "cases-cta-form-title" }}
+{{ $idPrefix := .idPrefix | default "cases" }}
 <div class="cases-cta__panel"{{ with .panelId }} id="{{ . }}"{{ end }}>
   <div class="cases-cta__panel-content">
     <h2 class="cases-cta__panel-title" id="{{ $titleId }}">
@@ -60,12 +61,12 @@
     novalidate
   >
     <div class="cases-cta__field">
-      <label class="visually-hidden" for="cases-name"
+      <label class="visually-hidden" for="{{ $idPrefix }}-name"
         >{{ $form.namePlaceholder }}</label
       >
       <input
         class="cases-cta__input"
-        id="cases-name"
+        id="{{ $idPrefix }}-name"
         type="text"
         name="name"
         placeholder="{{ $form.namePlaceholder }}"
@@ -75,13 +76,13 @@
     </div>
 
     <div class="cases-cta__field cases-cta__field--phone">
-      <label class="visually-hidden" for="cases-phone"
+      <label class="visually-hidden" for="{{ $idPrefix }}-phone"
         >Номер телефону</label
       >
       <span class="cases-cta__phone-prefix" aria-hidden="true">+38</span>
       <input
         class="cases-cta__input cases-cta__input--phone"
-        id="cases-phone"
+        id="{{ $idPrefix }}-phone"
         type="tel"
         name="phone"
         inputmode="tel"
@@ -92,12 +93,12 @@
     </div>
 
     <div class="cases-cta__field">
-      <label class="visually-hidden" for="cases-person-type"
+      <label class="visually-hidden" for="{{ $idPrefix }}-person-type"
         >Тип особи</label
       >
       <select
         class="cases-cta__select"
-        id="cases-person-type"
+        id="{{ $idPrefix }}-person-type"
         name="person-type"
         required
       >
