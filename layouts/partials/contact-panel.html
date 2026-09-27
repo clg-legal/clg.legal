@@ -1,0 +1,124 @@
+{{ $form := .form }}
+{{ $titleId := .titleId | default "cases-cta-form-title" }}
+<div class="cases-cta__panel"{{ with .panelId }} id="{{ . }}"{{ end }}>
+  <div class="cases-cta__panel-content">
+    <h2 class="cases-cta__panel-title" id="{{ $titleId }}">
+      {{ range $form.titleLines }}
+      <span class="cases-cta__panel-title-line">{{ . }}</span>
+      {{ end }}
+    </h2>
+
+    <p class="cases-cta__panel-lead">{{ $form.lead }}</p>
+
+    <div class="cases-cta__social">
+      <p class="cases-cta__social-text">
+        {{ range $form.social.titleLines }}
+        <span class="cases-cta__social-text-line">{{ . }}</span>
+        {{ end }}
+      </p>
+
+      <div class="cases-cta__social-links">
+        <a
+          class="cases-cta__social-link"
+          href="{{ $form.social.whatsappUrl }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          <img
+            src="{{ $form.social.whatsappIcon | relURL }}"
+            width="62"
+            height="62"
+            alt=""
+            decoding="async"
+          />
+        </a>
+        <a
+          class="cases-cta__social-link"
+          href="{{ $form.social.telegramUrl }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram"
+        >
+          <img
+            src="{{ $form.social.telegramIcon | relURL }}"
+            width="62"
+            height="62"
+            alt=""
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <form
+    class="cases-cta__form"
+    action="#"
+    method="post"
+    data-cases-form
+    novalidate
+  >
+    <div class="cases-cta__field">
+      <label class="visually-hidden" for="cases-name"
+        >{{ $form.namePlaceholder }}</label
+      >
+      <input
+        class="cases-cta__input"
+        id="cases-name"
+        type="text"
+        name="name"
+        placeholder="{{ $form.namePlaceholder }}"
+        autocomplete="name"
+        required
+      />
+    </div>
+
+    <div class="cases-cta__field cases-cta__field--phone">
+      <label class="visually-hidden" for="cases-phone"
+        >Номер телефону</label
+      >
+      <span class="cases-cta__phone-prefix" aria-hidden="true">+38</span>
+      <input
+        class="cases-cta__input cases-cta__input--phone"
+        id="cases-phone"
+        type="tel"
+        name="phone"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="{{ $form.phonePlaceholder }}"
+        required
+      />
+    </div>
+
+    <div class="cases-cta__field">
+      <label class="visually-hidden" for="cases-person-type"
+        >Тип особи</label
+      >
+      <select
+        class="cases-cta__select"
+        id="cases-person-type"
+        name="person-type"
+        required
+      >
+        {{ range $form.personTypes }}
+        <option value="{{ . }}">{{ . }}</option>
+        {{ end }}
+      </select>
+    </div>
+
+    <label class="cases-cta__checkbox">
+      <input type="checkbox" name="agree" value="yes" required />
+      <span
+        >{{ $form.privacyText }}
+        <a href="{{ $form.privacyUrl | relLangURL }}"
+          >Політикою конфіденційності</a
+        ></span
+      >
+    </label>
+
+    <button class="cases-cta__submit btn btn--light" type="submit">
+      {{ $form.submitText }}
+    </button>
+  </form>
+</div>

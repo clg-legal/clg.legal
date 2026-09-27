@@ -1,0 +1,83 @@
+<section class="contact-info" aria-label="Контактна інформація">
+  <div class="contact-info__container">
+    <div class="contact-info__map">
+      <iframe
+        class="contact-info__map-frame"
+        src="{{ .Site.Params.mapEmbedUrl }}"
+        title="{{ .Site.Params.address }}"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <ul class="contact-info__list">
+      <li class="contact-info__item">
+        <span class="contact-info__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 22s7-7.58 7-13a7 7 0 10-14 0c0 5.42 7 13 7 13z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+            <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.6" />
+          </svg>
+        </span>
+        <div class="contact-info__body">
+          <p class="contact-info__label">Адреса</p>
+          <a
+            class="contact-info__value"
+            href="{{ .Site.Params.addressUrl }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ range .Site.Params.addressLines }}
+            <span class="contact-info__value-line">{{ . }}</span>
+            {{ end }}
+          </a>
+        </div>
+      </li>
+
+      <li class="contact-info__item">
+        <span class="contact-info__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 4h3.5l1.5 4.5-2.2 1.8a12 12 0 006 6l1.8-2.2L20 15.5V19a1 1 0 01-1 1c-8.28 0-15-6.72-15-15a1 1 0 011-1z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <div class="contact-info__body">
+          <p class="contact-info__label">Телефон</p>
+          <a class="contact-info__value" href="tel:{{ .Site.Params.phonePrimary }}">{{ .Site.Params.phonePrimaryDisplay }}</a>
+          <a class="contact-info__value" href="tel:{{ .Site.Params.phoneSecondary }}">{{ .Site.Params.phoneSecondaryDisplay }}</a>
+        </div>
+      </li>
+
+      <li class="contact-info__item">
+        <span class="contact-info__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 6h16v12H4V6z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 6l8 7 8-7"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <div class="contact-info__body">
+          <p class="contact-info__label">Email</p>
+          <a class="contact-info__value" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

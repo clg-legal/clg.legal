@@ -1,0 +1,19 @@
+{{ $block := .Params.contactCta }}
+<section
+  class="cases-cta"
+  aria-labelledby="contact-cta-form-title"
+  style="--cases-cta-watermark: url('{{ partial "static-url.html" $block.watermarkImage }}')"
+>
+  <div class="cases-cta__container">
+    {{ partial "contact-panel.html" (dict "form" $block.form "titleId" "contact-cta-form-title") }}
+  </div>
+  <img
+    class="cases-cta__statue"
+    src="{{ $block.statueImage | relURL }}"
+    width="210"
+    height="278"
+    alt=""
+    decoding="async"
+    loading="lazy"
+  />
+</section>

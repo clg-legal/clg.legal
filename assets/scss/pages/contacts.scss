@@ -1,0 +1,30 @@
+@import "components/service-hero";
+@import "components/contact-info";
+@import "components/cases-cta";
+
+.page-contacts {
+  .service-hero::before {
+    @include respond-up($breakpoint-md) {
+      background-position: 50% 40px;
+    }
+  }
+
+  .cases-cta {
+    @include respond-up($breakpoint-lg) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  .cases-cta::before {
+    @include respond-up($breakpoint-lg) {
+      background-size: 39%;
+    }
+    @include respond-up(1200px) {
+      background-size: 35%;
+    }
+    @include respond-up($breakpoint-xl) {
+      background-size: 30%;
+    }
+  }
+}
