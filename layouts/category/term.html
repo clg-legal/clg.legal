@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "title" .Title "label" "Категорія") }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $paginator := .Paginate $pages }}
+  {{ if $paginator.Pages }}
+    <div class="post-grid">
+      {{ range $paginator.Pages }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="post-grid post-grid--empty">У цій категорії поки що немає публікацій.</p>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+{{ end }}
