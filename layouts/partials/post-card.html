@@ -1,0 +1,23 @@
+{{ $image := .Resources.GetMatch (.Params.image | default "") }}
+{{ $categorySlug := "" }}
+{{ with .Params.category }}{{ with index . 0 }}{{ $categorySlug = . }}{{ end }}{{ end }}
+<article class="post-card">
+  <a class="post-card__link" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+    <div class="post-card__media">
+      {{ with $image }}
+      <img class="post-card__image" src="{{ .RelPermalink }}" alt="" loading="lazy" decoding="async" />
+      {{ end }}
+    </div>
+    <div class="post-card__body">
+      {{ with $categorySlug }}
+      <span class="post-card__category">{{ partial "category-name.html" . }}</span>
+      {{ end }}
+      <h3 class="post-card__title">{{ .Title }}</h3>
+      <p class="post-card__excerpt">{{ .Params.description | default .Summary }}</p>
+      <div class="post-card__meta">
+        <span class="post-card__date">{{ .Date.Format "02.01.2006" }}</span>
+        {{ with .Params.author }}<span class="post-card__author">{{ . }}</span>{{ end }}
+      </div>
+    </div>
+  </a>
+</article>

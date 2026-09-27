@@ -1,0 +1,67 @@
+@import "../base/variables";
+
+.page-hero {
+  background-color: $color-primary;
+  color: $color-white;
+  padding-block: 32px;
+
+  @include respond-up($breakpoint-lg) {
+    padding-block: 56px;
+  }
+}
+
+.page-hero__container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 80px;
+
+  @include respond-up($breakpoint-xl) {
+    margin-top: 77px;
+  }
+}
+
+.page-hero__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.page-hero__breadcrumb-link {
+  color: $color-white;
+  text-decoration: none;
+  opacity: 0.85;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.page-hero__breadcrumb-separator,
+.page-hero__breadcrumb-current {
+  color: $color-white;
+}
+
+.page-hero__label {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.page-hero__title {
+  margin: 4px 0 0;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.15;
+
+  @include respond-up($breakpoint-lg) {
+    font-size: 40px;
+  }
+}
