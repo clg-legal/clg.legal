@@ -1,0 +1,23 @@
+{{ $image := .Resources.GetMatch (.Params.image | default "") }}
+{{ $bgURL := "" }}
+{{ with $image }}{{ $bgURL = .RelPermalink }}{{ end }}
+{{ $categorySlug := "" }}
+{{ with .Params.category }}{{ with index . 0 }}{{ $categorySlug = . }}{{ end }}{{ end }}
+<section class="post-hero" style="--post-hero-bg: url('{{ $bgURL }}')">
+  <div class="post-hero__media" aria-hidden="true"></div>
+  <div class="post-hero__container">
+    <nav class="post-hero__breadcrumb" aria-label="Breadcrumb">
+      <a class="post-hero__breadcrumb-link" href="{{ "/" | relLangURL }}">Головна</a>
+      <span class="post-hero__breadcrumb-separator" aria-hidden="true">/</span>
+      <a class="post-hero__breadcrumb-link" href="{{ "/blog/" | relLangURL }}">Блог</a>
+    </nav>
+    <h1 class="post-hero__title">{{ .Title }}</h1>
+    <ul class="post-hero__meta">
+      {{ with $categorySlug }}
+      <li class="post-hero__meta-item post-hero__meta-item--category">{{ partial "category-name.html" . }}</li>
+      {{ end }}
+      <li class="post-hero__meta-item">{{ .Date.Format "02.01.2006" }}</li>
+      {{ with .Params.author }}<li class="post-hero__meta-item">{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+</section>

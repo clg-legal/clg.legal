@@ -1,0 +1,10 @@
+@import "../base/variables";
+
+.article-cta {
+  margin-block: 32px;
+
+  .cases-cta__panel {
+    max-width: 100%;
+    flex-direction: column;
+  }
+}

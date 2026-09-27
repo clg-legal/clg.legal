@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ partial "post-hero.html" . }}
+  <article class="post-body">
+    <div class="post-body__container">
+      {{ .Content }}
+    </div>
+  </article>
+  {{ if templates.Exists "partials/related-posts.html" }}
+    {{ partial "related-posts.html" . }}
+  {{ end }}
+{{ end }}

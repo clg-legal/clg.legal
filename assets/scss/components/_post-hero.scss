@@ -1,0 +1,112 @@
+@import "../base/variables";
+
+.post-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  color: $color-white;
+  background-color: $color-primary;
+
+  @include respond-up($breakpoint-md) {
+    min-height: 420px;
+  }
+}
+
+.post-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--post-hero-bg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 11, 11, 0.15) 0%, rgba(11, 11, 11, 0.75) 100%);
+  }
+}
+
+.post-hero__container {
+  position: relative;
+  z-index: 1;
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: 32px;
+  margin-top: 80px;
+
+  @include respond-up($breakpoint-md) {
+    padding-block: 48px;
+  }
+
+  @include respond-up($breakpoint-xl) {
+    margin-top: 77px;
+  }
+}
+
+.post-hero__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.post-hero__breadcrumb-link {
+  color: $color-white;
+  text-decoration: none;
+  opacity: 0.85;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.post-hero__breadcrumb-separator {
+  color: $color-white;
+}
+
+.post-hero__title {
+  max-width: 900px;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @include respond-up($breakpoint-lg) {
+    font-size: 42px;
+  }
+}
+
+.post-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.post-hero__meta-item {
+  color: rgba(255, 255, 255, 0.85);
+
+  &--category {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    color: $color-white;
+  }
+}

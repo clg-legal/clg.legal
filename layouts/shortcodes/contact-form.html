@@ -1,0 +1,21 @@
+{{ $idPrefix := printf "contact-form-%d" .Ordinal }}
+{{ $form := dict
+  "titleLines" (slice "Залишились питання?")
+  "lead" "Отримайте безкоштовну консультацію юриста Concordis Legal Group."
+  "namePlaceholder" "Введіть імʼя"
+  "phonePlaceholder" "(000) 000-00-00"
+  "personTypes" (slice "Фізична / юридична особа" "Фізична особа" "Юридична особа")
+  "privacyText" "Я погоджуюсь з"
+  "privacyUrl" "/privacy-policy/"
+  "submitText" "Отримати консультацію"
+  "social" (dict
+    "titleLines" (slice "Напишіть юристу безпосередньо" "у WhatsApp або Telegram")
+    "whatsappUrl" "https://wa.me/380501055115"
+    "telegramUrl" "https://t.me/"
+    "whatsappIcon" "/images/social-whatsapp.jpg"
+    "telegramIcon" "/images/social-telegram.jpg"
+  )
+}}
+<div class="article-cta">
+  {{ partial "contact-panel.html" (dict "form" $form "titleId" (printf "%s-title" $idPrefix) "idPrefix" $idPrefix) }}
+</div>
