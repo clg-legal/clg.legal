@@ -167,44 +167,42 @@ function initCasesCarousel() {
 }
 
 function initCasesForm() {
-  const form = document.querySelector('[data-cases-form]');
+  const forms = document.querySelectorAll('[data-cases-form]');
 
-  if (!form) {
-    return;
-  }
+  forms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+      const nameInput = form.querySelector('input[name="name"]');
+      const phoneInput = form.querySelector('input[name="phone"]');
+      const personType = form.querySelector('select[name="person-type"]');
+      const agreeInput = form.querySelector('input[name="agree"]');
 
-    const nameInput = form.querySelector('input[name="name"]');
-    const phoneInput = form.querySelector('input[name="phone"]');
-    const personType = form.querySelector('select[name="person-type"]');
-    const agreeInput = form.querySelector('input[name="agree"]');
+      if (!(nameInput instanceof HTMLInputElement) || !nameInput.value.trim()) {
+        nameInput?.focus();
+        return;
+      }
 
-    if (!(nameInput instanceof HTMLInputElement) || !nameInput.value.trim()) {
-      nameInput?.focus();
-      return;
-    }
+      if (!(phoneInput instanceof HTMLInputElement) || !phoneInput.value.trim()) {
+        phoneInput?.focus();
+        return;
+      }
 
-    if (!(phoneInput instanceof HTMLInputElement) || !phoneInput.value.trim()) {
-      phoneInput?.focus();
-      return;
-    }
+      if (!(personType instanceof HTMLSelectElement) || !personType.value) {
+        personType?.focus();
+        return;
+      }
 
-    if (!(personType instanceof HTMLSelectElement) || !personType.value) {
-      personType?.focus();
-      return;
-    }
+      if (!(agreeInput instanceof HTMLInputElement) || !agreeInput.checked) {
+        agreeInput?.focus();
+        return;
+      }
 
-    if (!(agreeInput instanceof HTMLInputElement) || !agreeInput.checked) {
-      agreeInput?.focus();
-      return;
-    }
-
-    console.info('Cases form submitted:', {
-      name: nameInput.value.trim(),
-      phone: phoneInput.value.trim(),
-      personType: personType.value,
+      console.info('Cases form submitted:', {
+        name: nameInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        personType: personType.value,
+      });
     });
   });
 }
