@@ -1,3 +1,0 @@
-{{ $slug := . }}
-{{ $term := site.GetPage (printf "/category/%s" $slug) }}
-{{ if $term }}{{ $term.Title }}{{ else }}{{ $slug }}{{ end }}

@@ -1,8 +1,8 @@
 {{ $image := .Resources.GetMatch (.Params.image | default "") }}
 {{ $bgURL := "" }}
 {{ with $image }}{{ $bgURL = .RelPermalink }}{{ end }}
-{{ $categorySlug := "" }}
-{{ with .Params.category }}{{ with index . 0 }}{{ $categorySlug = . }}{{ end }}{{ end }}
+{{ $category := "" }}
+{{ with .GetTerms "category" }}{{ $category = index . 0 }}{{ end }}
 <section class="post-hero" style="--post-hero-bg: url('{{ $bgURL }}')">
   <div class="post-hero__media" aria-hidden="true"></div>
   <div class="post-hero__container">
@@ -13,8 +13,10 @@
     </nav>
     <h1 class="post-hero__title">{{ .Title }}</h1>
     <ul class="post-hero__meta">
-      {{ with $categorySlug }}
-      <li class="post-hero__meta-item post-hero__meta-item--category">{{ partial "category-name.html" . }}</li>
+      {{ with $category }}
+      <li class="post-hero__meta-item">
+        <a class="post-hero__meta-item--category" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
       {{ end }}
       <li class="post-hero__meta-item">{{ .Date.Format "02.01.2006" }}</li>
       {{ with .Params.author }}<li class="post-hero__meta-item">{{ . }}</li>{{ end }}

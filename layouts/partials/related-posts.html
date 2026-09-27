@@ -1,17 +1,8 @@
-{{ $categorySlug := "" }}
-{{ with .Params.category }}{{ with index . 0 }}{{ $categorySlug = . }}{{ end }}{{ end }}
+{{ $category := "" }}
+{{ with .GetTerms "category" }}{{ $category = index . 0 }}{{ end }}
 {{ $related := slice }}
-{{ if $categorySlug }}
-  {{ $candidates := where site.RegularPages "Section" "blog" }}
-  {{ $candidates = where $candidates "Permalink" "ne" .Permalink }}
-  {{ range $candidates.ByDate.Reverse }}
-    {{ $ownSlug := "" }}
-    {{ with .Params.category }}{{ with index . 0 }}{{ $ownSlug = . }}{{ end }}{{ end }}
-    {{ if eq $ownSlug $categorySlug }}
-      {{ $related = $related | append . }}
-    {{ end }}
-  {{ end }}
-  {{ $related = first 3 $related }}
+{{ with $category }}
+  {{ $related = first 3 (where .Pages.ByDate.Reverse "Permalink" "ne" $.Permalink) }}
 {{ end }}
 {{ if $related }}
 <section class="related-posts">

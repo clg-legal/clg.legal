@@ -102,11 +102,18 @@
 
 .post-hero__meta-item {
   color: rgba(255, 255, 255, 0.85);
+}
 
-  &--category {
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.15);
-    color: $color-white;
+.post-hero__meta-item--category {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: $color-white;
+  text-decoration: none;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
   }
 }
