@@ -13,7 +13,7 @@
       <span class="post-card__category">{{ partial "category-name.html" . }}</span>
       {{ end }}
       <h3 class="post-card__title">{{ .Title }}</h3>
-      <p class="post-card__excerpt">{{ .Params.description | default .Summary }}</p>
+      <p class="post-card__excerpt">{{ .Params.description | default (.Summary | plainify | truncate 180) }}</p>
       <div class="post-card__meta">
         <span class="post-card__date">{{ .Date.Format "02.01.2006" }}</span>
         {{ with .Params.author }}<span class="post-card__author">{{ . }}</span>{{ end }}
