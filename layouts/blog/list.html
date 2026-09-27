@@ -1,14 +1,15 @@
 {{ define "main" }}
   {{ partial "page-hero.html" (dict "title" "Блог") }}
-  {{ $pages := where site.RegularPages "Section" "blog" }}
-  {{ $pages = $pages.ByDate.Reverse }}
-  {{ if $pages }}
+  {{ $pages := (where site.RegularPages "Section" "blog").ByDate.Reverse }}
+  {{ $paginator := .Paginate $pages }}
+  {{ if $paginator.Pages }}
     <div class="post-grid">
-      {{ range $pages }}
+      {{ range $paginator.Pages }}
         {{ partial "post-card.html" . }}
       {{ end }}
     </div>
   {{ else }}
     <p class="post-grid post-grid--empty">Поки що немає публікацій.</p>
   {{ end }}
+  {{ partial "pagination.html" . }}
 {{ end }}

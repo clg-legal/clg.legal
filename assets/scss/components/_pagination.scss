@@ -1,0 +1,43 @@
+@import "../base/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-block: 24px 56px;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__link,
+.pagination__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding-inline: 8px;
+  border-radius: 10px;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.pagination__page.is-active {
+  background: $color-primary;
+  color: $color-white;
+}
