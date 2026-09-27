@@ -61,3 +61,20 @@ disableKinds = ["taxonomy"]
 
 [outputs]
   taxonomy = []
+
+[[cascade]]
+  [cascade._target]
+    kind = "page"
+    path = "/blog/**"
+  [cascade.params]
+    styles = ["pages/blog-post"]
+    scripts = ["pages/blog-post"]
+    bodyClass = "page-blog-post"
+
+[[cascade]]
+  [cascade._target]
+    kind = "term"
+    path = "/category/**"
+  [cascade.params]
+    styles = ["pages/blog"]
+    bodyClass = "page-blog"
