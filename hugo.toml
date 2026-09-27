@@ -51,6 +51,13 @@ title = 'Concordis Legal Group'
     [markup.goldmark.renderer]
       unsafe = false
 
-disableKinds = ["taxonomy", "term"]
+disableKinds = ["taxonomy"]
 
 [taxonomies]
+  category = "category"
+
+[pagination]
+  pagerSize = 9
+
+[outputs]
+  taxonomy = []
