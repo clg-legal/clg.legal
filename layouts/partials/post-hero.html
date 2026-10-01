@@ -10,6 +10,10 @@
       <a class="post-hero__breadcrumb-link" href="{{ "/" | relLangURL }}">Головна</a>
       <span class="post-hero__breadcrumb-separator" aria-hidden="true">/</span>
       <a class="post-hero__breadcrumb-link" href="{{ "/blog/" | relLangURL }}">Блог</a>
+      {{ with $category }}
+      <span class="post-hero__breadcrumb-separator" aria-hidden="true">/</span>
+      <a class="post-hero__breadcrumb-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ end }}
     </nav>
     <h1 class="post-hero__title">{{ .Title }}</h1>
     <ul class="post-hero__meta">

@@ -463,18 +463,6 @@ $color-cases-social-bg: rgba(255, 255, 255, 0.28);
   position: relative;
 }
 
-.cases-cta__phone-prefix {
-  position: absolute;
-  top: 50%;
-  left: 18px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1;
-  color: $color-white;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
 .cases-cta__input,
 .cases-cta__select {
   width: 100%;
@@ -495,10 +483,6 @@ $color-cases-social-bg: rgba(255, 255, 255, 0.28);
   @include respond-up($breakpoint-md) {
     font-size: 16px;
   }
-}
-
-.cases-cta__input--phone {
-  padding-left: 58px;
 }
 
 .cases-cta__select {

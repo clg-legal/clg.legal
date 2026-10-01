@@ -1,3 +1,10 @@
+{{ define "head-extra" }}
+  {{/* Hero images are CSS backgrounds (discovered late); preload only the set the viewport will use. */}}
+  <link rel="preload" as="image" href="{{ "/images/hero-bg-mobile-2.webp" | relURL }}" media="(max-width: 1023px)" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ "/images/hero-bg-desktop.webp" | relURL }}" media="(min-width: 1024px)" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ "/images/hero-person.png" | relURL }}" media="(min-width: 1024px)">
+{{ end }}
+
 {{ define "main" }}
   {{ partial "hero.html" . }}
   {{ partial "about.html" . }}

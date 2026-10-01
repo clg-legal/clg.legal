@@ -21,8 +21,8 @@ serviceHero:
   breadcrumbCurrent: "Договірне право"
   title: "Договірне право"
   lead: "Договірне право — надаємо повний юридичний супровід під час підготовки, укладання, погодження, аналізу та виконання договорів між сторонами, забезпечуючи мінімізацію ризиків, захист інтересів клієнта та юридичну безпеку кожної угоди."
-  backgroundImage: "/images/service-dohovirne-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-dohovirne-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 serviceIntro:
   image: "/images/service-abonent-hero.jpg"
@@ -70,7 +70,7 @@ casesCta:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"

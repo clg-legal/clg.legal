@@ -21,8 +21,8 @@ serviceHero:
   breadcrumbCurrent: "КРИМІНАЛЬНЕ ПРАВО «White cоllar crimes»"
   title: "КРИМІНАЛЬНЕ ПРАВО «White cоllar crimes»"
   lead: "Кримінальне право і процес — надамо правовий захист, представництво та супровід у кримінальних справах на всіх етапах."
-  backgroundImage: "/images/service-crime-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-crime-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 serviceIntro:
   image: "/images/service-abonent-hero.jpg"
@@ -70,7 +70,7 @@ casesCta:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"

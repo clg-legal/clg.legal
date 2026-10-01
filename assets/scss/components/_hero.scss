@@ -1,5 +1,7 @@
 @import "../base/variables";
 
+$hero-max-width: 1920px;
+
 .hero {
   position: relative;
   display: flex;
@@ -28,14 +30,10 @@
   width: 100%;
   height: 100%;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   &--mobile {
     display: block;
+    // Background image (not <img>) so the browser skips the download on desktop.
+    background: url("#{$imagesBase}/hero-bg-mobile-2.webp") center / cover no-repeat;
 
     @include respond-up($breakpoint-lg) {
       display: none;
@@ -49,8 +47,13 @@
   @include respond-up($breakpoint-lg) {
     display: grid;
     grid-template-columns: 38% 1fr;
+    // Fixed row: the row must never grow to the image's intrinsic height.
+    grid-template-rows: minmax(0, 1fr);
     width: 100%;
     height: 100%;
+    // Ultra-wide: the shape stays aligned with the text canvas, while the photo
+    // is always flush with the right edge of the viewport.
+    padding-left: unquote("max(0px, calc((100% - #{$hero-max-width}) / 2))");
   }
 
   @include respond-up(1220) {
@@ -58,22 +61,31 @@
   }
 
   @include respond-up($breakpoint-xl) {
-    grid-template-columns: minmax(288px, 40%) 1fr;
+    grid-template-columns: minmax(288px, #{unquote("min(40%, 768px)")}) 1fr;
   }
 }
 
-.hero__background-person {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+.hero__background-shape {
+  background: url("#{$imagesBase}/hero-person.png") center top / cover no-repeat;
+
+  // Ultra-wide: soften the shape's left edge where the canvas starts.
+  @media (min-width: #{$hero-max-width + 1px}) {
+    mask-image: linear-gradient(90deg, transparent 0, #000 25%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 25%);
+  }
 }
 
-.hero__background-pattern {
+.hero__background-photo {
+  // Keeps the whole portrait (incl. the caption baked into the image) visible
+  // and sized by hero height, never by viewport width.
+  justify-self: end;
   height: 100%;
-  background-image: url("#{$imagesBase}/hero-bg-desktop.png");
-  background-position: center right;
-  background-repeat: no-repeat;
+  max-width: 100%;
+  aspect-ratio: 614 / 980;
+  background: url("#{$imagesBase}/hero-bg-desktop.webp") center / cover no-repeat;
+  // Soft left edge so the photo blends into the green instead of a hard seam.
+  mask-image: linear-gradient(90deg, transparent 0, #000 30%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%);
 }
 
 .hero__overlay {
@@ -107,8 +119,9 @@
   @include respond-up($breakpoint-lg) {
     align-items: flex-start;
     justify-content: center;
-    margin: auto 0;
-    width: 50%;
+    // Centered in the same max-width canvas as the background on ultra-wide screens.
+    margin: auto 0 auto unquote("max(0px, calc((100% - #{$hero-max-width}) / 2))");
+    width: unquote("min(50%, #{$hero-max-width * 0.5})");
     max-width: none;
     padding-block: 0;
     padding-inline: 32px;

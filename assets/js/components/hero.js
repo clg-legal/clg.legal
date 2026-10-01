@@ -1,3 +1,5 @@
+import { isPhoneComplete } from './phone-input.js';
+
 export function initHero() {
   const form = document.querySelector('[data-hero-form]');
 
@@ -9,7 +11,7 @@ export function initHero() {
     event.preventDefault();
 
     const phoneInput = form.querySelector('input[type="tel"]');
-    if (!(phoneInput instanceof HTMLInputElement) || !phoneInput.value.trim()) {
+    if (!(phoneInput instanceof HTMLInputElement) || !isPhoneComplete(phoneInput)) {
       phoneInput?.focus();
       return;
     }

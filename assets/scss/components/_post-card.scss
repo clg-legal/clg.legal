@@ -29,6 +29,7 @@
 }
 
 .post-card__link {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -73,12 +74,21 @@
   align-self: flex-start;
   padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(22, 50, 44, 0.08);
+  background: rgba(0, 0, 0, 0.13);
   color: $color-primary;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  text-decoration: none;
+  // Sits above the card-wide title link so the badge is clickable on its own.
+  position: relative;
+  z-index: 1;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.22);
+  }
 }
 
 .post-card__title {
@@ -87,10 +97,18 @@
   font-weight: 700;
   line-height: 1.3;
   color: $color-black-lite;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+}
+
+.post-card__title-link {
+  color: inherit;
+  text-decoration: none;
+
+  // Stretched link: the whole card stays clickable.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
 }
 
 .post-card__excerpt {
@@ -102,7 +120,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex: 1 1 auto;
 }
 
 .post-card__meta {

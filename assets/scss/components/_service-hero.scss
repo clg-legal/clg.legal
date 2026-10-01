@@ -21,7 +21,7 @@
     background-color: $color-primary;
     background-image: var(
       --service-hero-bg-mobile,
-      var(--service-hero-bg, url("#{$imagesBase}/service-page-hero-bg.png"))
+      var(--service-hero-bg, url("#{$imagesBase}/service-page-hero-bg.webp"))
     );
     background-position: center center;
     background-repeat: no-repeat;
@@ -30,7 +30,7 @@
     @include respond-up($breakpoint-md) {
       background-image: var(
         --service-hero-bg,
-        url("#{$imagesBase}/service-page-hero-bg.png")
+        url("#{$imagesBase}/service-page-hero-bg.webp")
       );
     }
   }

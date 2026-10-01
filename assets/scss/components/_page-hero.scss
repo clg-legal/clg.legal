@@ -2,11 +2,17 @@
 
 .page-hero {
   background-color: $color-primary;
+  background-image: url("#{$imagesBase}/service-gosp-hero-bg-mobile.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $color-white;
-  padding-block: 32px;
+  display: flex;
+  align-items: center;
+  min-height: 190px;
 
-  @include respond-up($breakpoint-lg) {
-    padding-block: 56px;
+  @include respond-up($breakpoint-md) {
+    min-height: 390px;
   }
 }
 
@@ -15,7 +21,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding-block: 32px;
   margin-top: 80px;
+
+  @include respond-up($breakpoint-md) {
+    padding-block: 48px;
+  }
 
   @include respond-up($breakpoint-xl) {
     margin-top: 77px;

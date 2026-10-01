@@ -21,8 +21,8 @@ serviceHero:
   breadcrumbCurrent: "Трудове право, Трудові спори"
   title: "Трудове право, Трудові спори"
   lead: "Трудове право, трудові спори — надаємо комплексний юридичний супровід у питаннях, повʼязаних із трудовими правовідносинами, включаючи підготовку кадрової документації, врегулювання конфліктних ситуацій між роботодавцем і працівником, досудове врегулювання спорів, захист прав у судах та представництво в органах контролю."
-  backgroundImage: "/images/service-trudove-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-trudove-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 serviceIntro:
   image: "/images/service-abonent-hero.jpg"
@@ -70,7 +70,7 @@ casesCta:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"

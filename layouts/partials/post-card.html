@@ -2,7 +2,7 @@
 {{ $category := "" }}
 {{ with .GetTerms "category" }}{{ $category = index . 0 }}{{ end }}
 <article class="post-card">
-  <a class="post-card__link" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+  <div class="post-card__link">
     <div class="post-card__media">
       {{ with $image }}
       <img class="post-card__image" src="{{ .RelPermalink }}" alt="" loading="lazy" decoding="async" />
@@ -10,14 +10,14 @@
     </div>
     <div class="post-card__body">
       {{ with $category }}
-      <span class="post-card__category">{{ .Title }}</span>
+      <a class="post-card__category" href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{ end }}
-      <h3 class="post-card__title">{{ .Title }}</h3>
+      <h3 class="post-card__title"><a class="post-card__title-link" href="{{ $.RelPermalink }}">{{ .Title }}</a></h3>
       <p class="post-card__excerpt">{{ .Params.description | default (.Summary | plainify | truncate 180) }}</p>
       <div class="post-card__meta">
         <span class="post-card__date">{{ .Date.Format "02.01.2006" }}</span>
         {{ with .Params.author }}<span class="post-card__author">{{ . }}</span>{{ end }}
       </div>
     </div>
-  </a>
+  </div>
 </article>

@@ -1,25 +1,10 @@
 {{ $hero := .Params.hero }}
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__background" aria-hidden="true">
-    <picture class="hero__background-media hero__background-media--mobile">
-      <img
-        src="{{ "/images/hero-bg-mobile-2.png" | relURL }}"
-        alt=""
-        width="1920"
-        height="1080"
-        decoding="async"
-      />
-    </picture>
+    <div class="hero__background-media hero__background-media--mobile"></div>
     <div class="hero__background-desktop">
-      <img
-        class="hero__background-person"
-        src="{{ "/images/hero-person.png" | relURL }}"
-        alt=""
-        width="903"
-        height="1024"
-        decoding="async"
-      />
-      <div class="hero__background-pattern"></div>
+      <div class="hero__background-shape"></div>
+      <div class="hero__background-photo"></div>
     </div>
     <div class="hero__overlay"></div>
   </div>

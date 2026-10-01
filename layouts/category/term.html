@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ partial "page-hero.html" (dict "title" .Title "label" "Категорія") }}
+  {{ partial "page-hero.html" (dict "title" .Title "label" "Категорія" "parent" (dict "title" "Блог" "url" (site.GetPage "/blog").RelPermalink)) }}
   {{ $pages := .Pages.ByDate.Reverse }}
   {{ $paginator := .Paginate $pages }}
   {{ if $paginator.Pages }}

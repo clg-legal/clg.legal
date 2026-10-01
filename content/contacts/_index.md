@@ -20,8 +20,8 @@ bodyClass: "page-contacts"
 serviceHero:
   breadcrumbCurrent: "Контакти"
   title: "Контакти"
-  backgroundImage: "/images/service-dohovirne-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-dohovirne-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 contactCta:
   watermarkImage: "/images/cases-watermark.png"
@@ -31,7 +31,7 @@ contactCta:
       - "Зв'яжіться з нами"
     lead: "Ми відгукнемось у найшвидші терміни"
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"

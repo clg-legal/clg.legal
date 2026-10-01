@@ -7,3 +7,12 @@
 @import 'components/client-care';
 @import 'components/team';
 @import 'components/faq';
+
+// Anchor links: stop the scroll 50px above the target.
+#about-us,
+#praktyky,
+#team,
+#consultation,
+#footer {
+  scroll-margin-top: 50px;
+}

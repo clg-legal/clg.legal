@@ -1,3 +1,5 @@
+import { isPhoneComplete } from './phone-input.js';
+
 export function initCasesCta() {
   initCasesCarousel();
   initCasesForm();
@@ -183,7 +185,7 @@ function initCasesForm() {
         return;
       }
 
-      if (!(phoneInput instanceof HTMLInputElement) || !phoneInput.value.trim()) {
+      if (!(phoneInput instanceof HTMLInputElement) || !isPhoneComplete(phoneInput)) {
         phoneInput?.focus();
         return;
       }

@@ -1,10 +1,15 @@
 {{ $title := .title }}
 {{ $label := .label }}
+{{ $parent := .parent }}
 <section class="page-hero">
   <div class="page-hero__container">
     <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
       <a class="page-hero__breadcrumb-link" href="{{ "/" | relLangURL }}">Головна</a>
       <span class="page-hero__breadcrumb-separator" aria-hidden="true">/</span>
+      {{ with $parent }}
+        <a class="page-hero__breadcrumb-link" href="{{ .url }}">{{ .title }}</a>
+        <span class="page-hero__breadcrumb-separator" aria-hidden="true">/</span>
+      {{ end }}
       <span class="page-hero__breadcrumb-current">{{ $title }}</span>
     </nav>
     {{ with $label }}<p class="page-hero__label">{{ . }}</p>{{ end }}

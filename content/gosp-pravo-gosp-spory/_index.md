@@ -21,8 +21,8 @@ serviceHero:
   breadcrumbCurrent: "Господарське право, Господарські спори"
   title: "Господарське право, Господарські спори"
   lead: "Господарське право і процес — правовий супровід бізнесу у вирішенні спорів, укладанні договорів та захисті інтересів у господарських судах."
-  backgroundImage: "/images/service-gosp-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-gosp-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 serviceIntro:
   image: "/images/service-abonent-hero.jpg"
@@ -69,7 +69,7 @@ casesCta:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"

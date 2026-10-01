@@ -8,6 +8,10 @@ Static site for Concordis Legal Group (clg.legal), a Ukrainian law firm. This is
 
 `files-for-cursor/*.html` are raw exports of the old WordPress pages, kept as source-of-truth reference for copy/content when building or checking new Hugo pages — not part of the build.
 
+## Git
+
+Never create git commits (or push, amend, or otherwise record changes in git) on your own. Only the user commits. Leave changes in the working tree and let the user review and commit them.
+
 ## Commands
 
 Requires **Hugo Extended** (verify with `hugo version` — must say `extended`; CI pins `0.148.2`).

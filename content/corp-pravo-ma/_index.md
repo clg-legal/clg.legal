@@ -21,8 +21,8 @@ serviceHero:
   breadcrumbCurrent: "Корпоративне право / M&A"
   title: "Корпоративне право / M&A"
   lead: "Корпоративне право / M&A — забезпечуємо повний юридичний супровід корпоративних процесів, включаючи створення, реорганізацію та ліквідацію бізнесу, підготовку внутрішніх документів, супровід угод злиття та поглинання, структуризацію бізнесу та захист корпоративних прав клієнтів."
-  backgroundImage: "/images/service-corp-hero-bg.png"
-  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.png"
+  backgroundImage: "/images/service-corp-hero-bg.webp"
+  backgroundImageMobile: "/images/service-gosp-hero-bg-mobile.webp"
 
 serviceIntro:
   image: "/images/service-abonent-hero.jpg"
@@ -70,7 +70,7 @@ casesCta:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
     namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "(000) 000-00-00"
+    phonePlaceholder: "+38 (000) 000-00-00"
     personTypes:
       - "Фізична / юридична особа"
       - "Фізична особа"
