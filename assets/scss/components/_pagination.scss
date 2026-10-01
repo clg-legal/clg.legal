@@ -41,3 +41,10 @@
   background: $color-primary;
   color: $color-white;
 }
+
+.pagination__ellipsis {
+  min-width: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  user-select: none;
+}

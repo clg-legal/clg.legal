@@ -6,13 +6,28 @@
   {{ end }}
 
   <ul class="pagination__list">
+    {{/* Windowed list: 1 … cur-1 cur cur+1 … last. A gap of a single page is shown as the page itself. */}}
+    {{ $cur := $paginator.PageNumber }}
+    {{ $total := $paginator.TotalPages }}
     {{ range $paginator.Pagers }}
+      {{ $n := .PageNumber }}
+      {{ $inWindow := and (ge $n (sub $cur 1)) (le $n (add $cur 1)) }}
+      {{ $edge := or (eq $n 1) (eq $n $total) }}
+      {{ $fillLeft := and (eq $n 2) (eq $cur 4) }}
+      {{ $fillRight := and (eq $n (sub $total 1)) (eq $cur (sub $total 3)) }}
+      {{ if and (eq $n 2) (ge $cur 5) }}
+    <li class="pagination__item pagination__ellipsis" aria-hidden="true">…</li>
+      {{ else if and (eq $n (sub $total 1)) (le $cur (sub $total 4)) }}
+    <li class="pagination__item pagination__ellipsis" aria-hidden="true">…</li>
+      {{ else if or $inWindow $edge $fillLeft $fillRight }}
     <li class="pagination__item">
       <a
         class="pagination__page{{ if eq . $paginator }} is-active{{ end }}"
         href="{{ .URL }}"
-      >{{ .PageNumber }}</a>
+        {{ if eq . $paginator }}aria-current="page"{{ end }}
+      >{{ $n }}</a>
     </li>
+      {{ end }}
     {{ end }}
   </ul>
 

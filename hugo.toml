@@ -57,7 +57,7 @@ disableKinds = ["taxonomy"]
   category = "category"
 
 [pagination]
-  pagerSize = 9
+  pagerSize = 12
 
 [outputs]
   taxonomy = []
