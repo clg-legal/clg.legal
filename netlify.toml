@@ -12,3 +12,59 @@
 
 [context.branch-deploy]
   command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+# 301-редиректи зі старих адрес WordPress (щоб не втратити позиції в Google)
+[[redirects]]
+  from = "/2025/08/11/кримінальне-провадження/"
+  to = "/blog/kryminalne-provadzhennia-klyuchovi-pozytsii/"
+  status = 301
+
+[[redirects]]
+  from = "/2025/12/06/цивільні-спори-як-ефективно-захистит/"
+  to = "/blog/tsyvilni-spory-yak-zakhystyty-prava/"
+  status = 301
+
+[[redirects]]
+  from = "/2025/12/06/адвокат-у-києві-юридична-консультаці/"
+  to = "/blog/advokat-u-kyievi-yurydychna-konsultatsiia/"
+  status = 301
+
+[[redirects]]
+  from = "/2025/11/16/*"
+  to = "/#team"
+  status = 301
+
+[[redirects]]
+  from = "/2025/12/05/*"
+  to = "/#team"
+  status = 301
+
+[[redirects]]
+  from = "/category/кримінальне-провадження/"
+  to = "/category/kryminalne-provadzhennya/"
+  status = 301
+
+[[redirects]]
+  from = "/category/цивільні-спори/"
+  to = "/category/tsyvilni-spory/"
+  status = 301
+
+[[redirects]]
+  from = "/category/carousel/"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/about/"
+  to = "/#about-us"
+  status = 301
+
+[[redirects]]
+  from = "/styagnennya-zaborgovanosti/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap.xml"
+  to = "/sitemap.xml"
+  status = 301

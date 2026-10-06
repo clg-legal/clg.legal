@@ -259,6 +259,12 @@ seo:
 
 Якщо `seo` не задано, використовуються `title`/`description` сторінки та опис сайту з `hugo.toml`.
 
+Для пошуковиків також налаштовано:
+- `sitemap.xml` (генерує Hugo) і `static/robots.txt` (закриті `/admin/` та `/forms.html`);
+- структуровані дані JSON-LD (`layouts/partials/schema.html`): організація (`LegalService`) на головній із даних `data/contacts.yaml`, `Article` для статей блогу;
+- сторінка 404 (`layouts/404.html`, `noindex`);
+- 301-редиректи зі старих адрес WordPress у `netlify.toml` (старі статті, категорії, `/about/` тощо).
+
 ## Статус
 
 - [x] Header, Hero, секції головної

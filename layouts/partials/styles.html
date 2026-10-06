@@ -17,6 +17,7 @@
 {{ end }}
 
 {{ $styles := .Params.styles | default (slice) }}
+{{ if eq .Kind "404" }}{{ $styles = slice "pages/blog" }}{{ end }}
 {{ range $style := $styles }}
   {{ $path := printf "scss/%s.scss" $style }}
   {{ with resources.Get $path }}

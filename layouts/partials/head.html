@@ -1,4 +1,5 @@
 {{ $seo := .Params.seo | default dict }}
+{{ if eq .Kind "404" }}{{ $seo = dict "title" "Сторінку не знайдено – Concordis Legal Group" "description" "Такої сторінки не існує. Перейдіть на головну або в розділ «Публікації»." "robots" "noindex, follow" }}{{ end }}
 {{ $title := $seo.title | default .Title }}
 {{ $description := $seo.description | default .Description | default .Site.Params.description }}
 {{ $canonical := $seo.canonical | default .Permalink }}
@@ -32,5 +33,7 @@
 
 <link rel="icon" href="{{ "/images/favicon-32.png" | relURL }}" sizes="32x32">
 <link rel="icon" href="{{ "/images/favicon-192.png" | relURL }}" sizes="192x192">
+
+{{ partial "schema.html" . }}
 
 {{ partial "styles.html" . }}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /forms.html
+
+Sitemap: https://clg.legal/sitemap.xml

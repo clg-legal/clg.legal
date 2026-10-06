@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "title" "Сторінку не знайдено" "label" "Помилка 404") }}
+  <section class="post-grid post-grid--empty">
+    <p>Можливо, адресу введено з помилкою або сторінку було переміщено.</p>
+    <p>
+      <a class="btn btn--light" href="{{ "/" | relLangURL }}">На головну</a>
+      <a class="btn btn--light" href="{{ "/blog/" | relLangURL }}">Публікації</a>
+    </p>
+  </section>
+{{ end }}
