@@ -1,5 +1,6 @@
 ---
 title: "Адвокат у Києві: юридична консультація та правовий супровід від Concordis Legal Group"
+slug: "advokat-u-kyievi-yurydychna-konsultatsiia"
 description: "Concordis Legal Group — це команда адвокатів та юристів у Києві, які працюють там, де потрібний результат, а не формальність."
 image: "cover.jpg"
 date: 2025-12-06

@@ -1,0 +1,75 @@
+backend:
+  name: github
+  # TODO: після передачі репозиторію клієнту вказати "<акаунт-або-організація>/<репозиторій>"
+  repo: OWNER/REPO
+  branch: main
+  # TODO: для OAuth через Netlify розкоментувати (див. інструкцію)
+  # base_url: https://api.netlify.com
+  # auth_endpoint: auth
+
+# Працює лише на localhost: запускається разом із `npx decap-server`
+local_backend: true
+
+locale: uk
+site_url: https://clg.legal
+display_url: https://clg.legal
+logo_url: /images/logo.png
+
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: blog
+    label: Блог
+    label_singular: Публікація
+    folder: content/blog
+    create: true
+    # Кожен пост — page bundle: content/blog/<slug>/index.md, картинки лежать поруч
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    sortable_fields: ["date", "title"]
+    summary: "{{date}} — {{title}}"
+    fields:
+      - { label: Заголовок, name: title, widget: string }
+      - label: Slug (адреса сторінки)
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Тільки латиниця, цифри та дефіси"]
+        hint: "Латиницею через дефіс, наприклад: advokat-u-kyievi. Для вже опублікованих постів не змінювати — зміниться URL."
+      - { label: Короткий опис, name: description, widget: text }
+      - { label: Обкладинка, name: image, widget: image, required: false }
+      - label: Дата публікації
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+      - label: Категорія
+        name: category
+        widget: select
+        multiple: true
+        options:
+          - { label: Цивільні спори, value: tsyvilni-spory }
+          - { label: Кримінальне провадження, value: kryminalne-provadzhennya }
+        hint: "Нова категорія потребує окремої сторінки в content/category/ — зверніться до розробника."
+      - { label: Автор, name: author, widget: string, default: "CONCORDIS LEGAL GROUP" }
+      - { label: Чернетка, name: draft, widget: boolean, default: false, required: false }
+      - label: SEO
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - { label: SEO title, name: title, widget: string, required: false }
+          - { label: SEO description, name: description, widget: text, required: false }
+          - label: Robots
+            name: robots
+            widget: select
+            options: ["index, follow", "noindex, nofollow"]
+            default: "index, follow"
+            required: false
+      - { label: Текст, name: body, widget: markdown }
