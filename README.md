@@ -61,6 +61,6 @@ seo:
 
 - [x] Header
 - [x] Hero (головна)
-- [ ] Інші секції головної
-- [ ] Блог
-- [ ] Decap CMS + Netlify
+- [x] Інші секції головної
+- [x] Блог
+- [x] Decap CMS + Netlify
