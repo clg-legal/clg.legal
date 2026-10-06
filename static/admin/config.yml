@@ -242,10 +242,10 @@ collections:
           - { label: Посилання на політику, name: privacyUrl, widget: string }
           - { label: Повідомлення після успішної відправки, name: successText, widget: text }
           - { label: Повідомлення при помилці відправки, name: errorText, widget: text }
-          - { label: Помилка: не введено імʼя, name: nameError, widget: string }
-          - { label: Помилка: неповний номер телефону, name: phoneError, widget: string }
-          - { label: Помилка: не обрано тип особи, name: personError, widget: string }
-          - { label: Помилка: немає згоди з політикою, name: agreeError, widget: string }
+          - { label: "Помилка: не введено імʼя", name: nameError, widget: string }
+          - { label: "Помилка: неповний номер телефону", name: phoneError, widget: string }
+          - { label: "Помилка: не обрано тип особи", name: personError, widget: string }
+          - { label: "Помилка: немає згоди з політикою", name: agreeError, widget: string }
           - label: Соцмережі
             name: social
             widget: object
