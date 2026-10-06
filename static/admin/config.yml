@@ -49,12 +49,13 @@ collections:
         picker_utc: true
       - label: Категорія
         name: category
-        widget: select
+        widget: relation
+        collection: categories
+        search_fields: ["title"]
+        value_field: slug
+        display_fields: ["title"]
         multiple: true
-        options:
-          - { label: Цивільні спори, value: tsyvilni-spory }
-          - { label: Кримінальне провадження, value: kryminalne-provadzhennya }
-        hint: "Нова категорія потребує окремої сторінки в content/category/ — зверніться до розробника."
+        hint: "Нову категорію можна створити в розділі «Категорії» зліва."
       - { label: Автор, name: author, widget: string, default: "CONCORDIS LEGAL GROUP" }
       - { label: Чернетка, name: draft, widget: boolean, default: false, required: false }
       - label: SEO
@@ -71,3 +72,35 @@ collections:
             default: "index, follow"
             required: false
       - { label: Текст, name: body, widget: markdown }
+
+  - name: categories
+    label: Категорії
+    label_singular: Категорія
+    folder: content/category
+    create: true
+    # Кожна категорія — content/category/<slug>/_index.md
+    path: "{{slug}}/_index"
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    summary: "{{title}}"
+    fields:
+      - { label: Назва, name: title, widget: string }
+      - label: Slug (адреса сторінки)
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Тільки латиниця, цифри та дефіси"]
+        hint: "Латиницею через дефіс, наприклад: podatkovi-spory. Для наявних категорій не змінювати — зміниться URL і зламаються звʼязки з публікаціями."
+      - label: SEO
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - { label: SEO title, name: title, widget: string, required: false, hint: "Якщо порожньо — береться назва категорії" }
+          - { label: SEO description, name: description, widget: text, required: false }
+          - label: Robots
+            name: robots
+            widget: select
+            options: ["index, follow", "noindex, nofollow"]
+            default: "index, follow"
+            required: false
