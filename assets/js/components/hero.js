@@ -1,5 +1,5 @@
 import { isPhoneComplete } from './phone-input.js';
-import { submitForm } from './form-submit.js';
+import { showFieldError, submitForm } from './form-submit.js';
 
 export function initHero() {
   const form = document.querySelector('[data-hero-form]');
@@ -13,7 +13,7 @@ export function initHero() {
 
     const phoneInput = form.querySelector('input[type="tel"]');
     if (!(phoneInput instanceof HTMLInputElement) || !isPhoneComplete(phoneInput)) {
-      phoneInput?.focus();
+      showFieldError(form, phoneInput, 'phone');
       return;
     }
 

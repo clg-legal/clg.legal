@@ -62,8 +62,6 @@
     netlify
     netlify-honeypot="bot-field"
     data-cases-form
-    data-success="{{ $form.successText }}"
-    data-error="{{ $form.errorText }}"
     novalidate
   >
     <input type="hidden" name="form-name" value="contact" />
@@ -131,6 +129,14 @@
     <button class="cases-cta__submit btn btn--light" type="submit">
       {{ $form.submitText }}
     </button>
+    <div hidden data-form-messages>
+      <span data-msg="success">{{ $form.successText }}</span>
+      <span data-msg="error">{{ $form.errorText }}</span>
+      <span data-msg="name">{{ $form.nameError }}</span>
+      <span data-msg="phone">{{ $form.phoneError }}</span>
+      <span data-msg="person">{{ $form.personError }}</span>
+      <span data-msg="agree">{{ $form.agreeError }}</span>
+    </div>
     <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
   </form>
 </div>

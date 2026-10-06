@@ -1,16 +1,35 @@
-// Sends a Netlify Form via fetch and reports the result in the form's [data-form-status] element.
-export async function submitForm(form) {
+// Shared helpers for Netlify Forms: status messages and fetch submission.
+// Message texts live in a hidden [data-form-messages] block inside the form (data/contact_form.yaml).
+
+function getMessage(form, key) {
+  const node = form.querySelector(`[data-form-messages] [data-msg="${key}"]`);
+  return node ? node.textContent.trim() : '';
+}
+
+export function showStatus(form, state, key) {
   const status = form.querySelector('[data-form-status]');
+  if (!status) {
+    return;
+  }
+  status.dataset.state = state;
+  status.textContent = getMessage(form, key);
+  status.hidden = false;
+}
+
+// Reports a validation problem: shows the message, marks the field and moves focus to it.
+export function showFieldError(form, field, key) {
+  form.querySelectorAll('[aria-invalid="true"]').forEach((node) => node.removeAttribute('aria-invalid'));
+  showStatus(form, 'error', key);
+  if (field instanceof HTMLElement) {
+    field.setAttribute('aria-invalid', 'true');
+    field.focus();
+  }
+}
+
+export async function submitForm(form) {
   const submit = form.querySelector('[type="submit"]');
 
-  const showStatus = (state, text) => {
-    if (!status) {
-      return;
-    }
-    status.dataset.state = state;
-    status.textContent = text;
-    status.hidden = false;
-  };
+  form.querySelectorAll('[aria-invalid="true"]').forEach((node) => node.removeAttribute('aria-invalid'));
 
   const pageInput = form.querySelector('input[name="page"]');
   if (pageInput instanceof HTMLInputElement) {
@@ -33,10 +52,10 @@ export async function submitForm(form) {
     }
 
     form.reset();
-    showStatus('success', form.dataset.success || '');
+    showStatus(form, 'success', 'success');
   } catch (error) {
     console.error(error);
-    showStatus('error', form.dataset.error || '');
+    showStatus(form, 'error', 'error');
   } finally {
     if (submit instanceof HTMLButtonElement) {
       submit.disabled = false;

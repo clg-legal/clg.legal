@@ -41,8 +41,6 @@
         netlify
         netlify-honeypot="bot-field"
         data-hero-form
-        data-success="{{ site.Data.contact_form.successText }}"
-        data-error="{{ site.Data.contact_form.errorText }}"
         novalidate
       >
         <input type="hidden" name="form-name" value="hero-callback" />
@@ -64,6 +62,14 @@
         <button class="hero__submit btn btn--light" type="submit">
           {{ $hero.formSubmit }}
         </button>
+        <div hidden data-form-messages>
+          <span data-msg="success">{{ site.Data.contact_form.successText }}</span>
+          <span data-msg="error">{{ site.Data.contact_form.errorText }}</span>
+          <span data-msg="name">{{ site.Data.contact_form.nameError }}</span>
+          <span data-msg="phone">{{ site.Data.contact_form.phoneError }}</span>
+          <span data-msg="person">{{ site.Data.contact_form.personError }}</span>
+          <span data-msg="agree">{{ site.Data.contact_form.agreeError }}</span>
+        </div>
         <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
       </form>
     </div>

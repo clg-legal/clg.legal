@@ -43,9 +43,16 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
   color: $color-white;
 
   &[data-state="error"] {
     color: #ffb4a8;
   }
+}
+
+[aria-invalid="true"] {
+  outline: 2px solid #ffb4a8;
+  outline-offset: 2px;
 }

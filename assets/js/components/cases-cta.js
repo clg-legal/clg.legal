@@ -1,5 +1,5 @@
 import { isPhoneComplete } from './phone-input.js';
-import { submitForm } from './form-submit.js';
+import { showFieldError, submitForm } from './form-submit.js';
 
 export function initCasesCta() {
   initCasesCarousel();
@@ -182,22 +182,22 @@ function initCasesForm() {
       const agreeInput = form.querySelector('input[name="agree"]');
 
       if (!(nameInput instanceof HTMLInputElement) || !nameInput.value.trim()) {
-        nameInput?.focus();
+        showFieldError(form, nameInput, 'name');
         return;
       }
 
       if (!(phoneInput instanceof HTMLInputElement) || !isPhoneComplete(phoneInput)) {
-        phoneInput?.focus();
+        showFieldError(form, phoneInput, 'phone');
         return;
       }
 
       if (!(personType instanceof HTMLSelectElement) || !personType.value) {
-        personType?.focus();
+        showFieldError(form, personType, 'person');
         return;
       }
 
       if (!(agreeInput instanceof HTMLInputElement) || !agreeInput.checked) {
-        agreeInput?.focus();
+        showFieldError(form, agreeInput, 'agree');
         return;
       }
 
