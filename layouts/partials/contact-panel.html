@@ -57,11 +57,21 @@
 
   <form
     class="cases-cta__form"
-    action="#"
+    name="contact"
+    action="/"
     method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
     data-cases-form
+    data-success="{{ $form.successText }}"
+    data-error="{{ $form.errorText }}"
     novalidate
   >
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="page" value="" />
+    <p class="visually-hidden" aria-hidden="true">
+      <label>Не заповнюйте це поле: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+    </p>
     <div class="cases-cta__field">
       <label class="visually-hidden" for="{{ $idPrefix }}-name"
         >{{ $form.namePlaceholder }}</label
@@ -122,5 +132,6 @@
     <button class="cases-cta__submit btn btn--light" type="submit">
       {{ $form.submitText }}
     </button>
+    <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
   </form>
 </div>

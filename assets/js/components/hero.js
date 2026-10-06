@@ -1,4 +1,5 @@
 import { isPhoneComplete } from './phone-input.js';
+import { submitForm } from './form-submit.js';
 
 export function initHero() {
   const form = document.querySelector('[data-hero-form]');
@@ -16,7 +17,6 @@ export function initHero() {
       return;
     }
 
-    // Placeholder until backend / Netlify Forms integration is added.
-    console.info('Hero form submitted:', phoneInput.value.trim());
+    submitForm(form);
   });
 }

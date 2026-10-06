@@ -256,6 +256,7 @@ $hero-max-width: 1920px;
 
 .hero__form {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 10px;
   width: 100%;
@@ -299,6 +300,10 @@ $hero-max-width: 1920px;
     outline: 2px solid rgba(255, 255, 255, 0.35);
     outline-offset: 2px;
   }
+}
+
+.hero__form .form-status {
+  flex: 1 0 100%;
 }
 
 .hero__submit {

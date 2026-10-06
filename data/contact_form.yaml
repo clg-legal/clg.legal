@@ -13,3 +13,5 @@ social:
   telegramUrl: https://t.me/
   whatsappIcon: /images/social-whatsapp.jpg
   telegramIcon: /images/social-telegram.jpg
+successText: Дякуємо! Ми отримали вашу заявку та зв'яжемося з вами найближчим часом.
+errorText: Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам.

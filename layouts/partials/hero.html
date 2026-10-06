@@ -36,11 +36,21 @@
 
       <form
         class="hero__form"
-        action="#"
+        name="hero-callback"
+        action="/"
         method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         data-hero-form
+        data-success="{{ site.Data.contact_form.successText }}"
+        data-error="{{ site.Data.contact_form.errorText }}"
         novalidate
       >
+        <input type="hidden" name="form-name" value="hero-callback" />
+        <input type="hidden" name="page" value="" />
+        <p class="visually-hidden" aria-hidden="true">
+          <label>Не заповнюйте це поле: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <label class="visually-hidden" for="hero-phone">Номер телефону</label>
         <input
           class="hero__input"
@@ -55,6 +65,7 @@
         <button class="hero__submit btn btn--light" type="submit">
           {{ $hero.formSubmit }}
         </button>
+        <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
       </form>
     </div>
   </div>

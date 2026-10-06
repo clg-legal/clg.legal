@@ -240,6 +240,8 @@ collections:
           - { label: Варіанти типу особи, name: personTypes, widget: list, field: { label: Варіант, name: v, widget: string } }
           - { label: Текст згоди, name: privacyText, widget: string }
           - { label: Посилання на політику, name: privacyUrl, widget: string }
+          - { label: Повідомлення після успішної відправки, name: successText, widget: text }
+          - { label: Повідомлення при помилці відправки, name: errorText, widget: text }
           - label: Соцмережі
             name: social
             widget: object

@@ -1,4 +1,5 @@
 import { isPhoneComplete } from './phone-input.js';
+import { submitForm } from './form-submit.js';
 
 export function initCasesCta() {
   initCasesCarousel();
@@ -200,11 +201,7 @@ function initCasesForm() {
         return;
       }
 
-      console.info('Cases form submitted:', {
-        name: nameInput.value.trim(),
-        phone: phoneInput.value.trim(),
-        personType: personType.value,
-      });
+      submitForm(form);
     });
   });
 }
