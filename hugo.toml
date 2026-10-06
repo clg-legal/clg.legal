@@ -69,3 +69,9 @@ disableKinds = ["taxonomy"]
   [cascade.params]
     styles = ["pages/blog"]
     bodyClass = "page-blog"
+
+# Netlify's form detection does not recognise unquoted attributes (data-netlify=true) in minified HTML.
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepQuotes = true
