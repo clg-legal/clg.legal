@@ -195,21 +195,7 @@ collections:
             fields: &form_fields
               - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
               - { label: Підзаголовок, name: lead, widget: text }
-              - { label: Плейсхолдер імені, name: namePlaceholder, widget: string }
-              - { label: Плейсхолдер телефону, name: phonePlaceholder, widget: string }
-              - { label: Варіанти типу особи, name: personTypes, widget: list, field: { label: Варіант, name: v, widget: string } }
-              - { label: Текст згоди, name: privacyText, widget: string }
-              - { label: Посилання на політику, name: privacyUrl, widget: string }
               - { label: Текст кнопки, name: submitText, widget: string }
-              - label: Соцмережі
-                name: social
-                widget: object
-                fields:
-                  - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
-                  - { label: Посилання WhatsApp, name: whatsappUrl, widget: string }
-                  - { label: Посилання Telegram, name: telegramUrl, widget: string }
-                  - { label: Іконка WhatsApp, name: whatsappIcon, widget: image, required: false }
-                  - { label: Іконка Telegram, name: telegramIcon, widget: image, required: false }
           - { label: Картинка (статуя), name: statueImage, widget: image, required: false }
       - label: Часті запитання
         name: faq
@@ -245,6 +231,24 @@ collections:
               - { label: Досвід, name: experience, widget: string }
               - { label: Текст кнопки, name: buttonText, widget: string }
               - { label: Посилання кнопки, name: buttonUrl, widget: string }
+      - name: contact_form
+        label: Форма заявки — спільні налаштування (усі сторінки та статті)
+        file: data/contact_form.yaml
+        fields:
+          - { label: Плейсхолдер імені, name: namePlaceholder, widget: string }
+          - { label: Плейсхолдер телефону, name: phonePlaceholder, widget: string }
+          - { label: Варіанти типу особи, name: personTypes, widget: list, field: { label: Варіант, name: v, widget: string } }
+          - { label: Текст згоди, name: privacyText, widget: string }
+          - { label: Посилання на політику, name: privacyUrl, widget: string }
+          - label: Соцмережі
+            name: social
+            widget: object
+            fields:
+              - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+              - { label: "Посилання WhatsApp (якщо порожньо — береться з «Телефон 1» у розділі «Контакти»)", name: whatsappUrl, widget: string, required: false }
+              - { label: Посилання Telegram, name: telegramUrl, widget: string }
+              - { label: Іконка WhatsApp, name: whatsappIcon, widget: image, required: false }
+              - { label: Іконка Telegram, name: telegramIcon, widget: image, required: false }
       - name: contacts_data
         label: Контакти — адреса, телефони, email (шапка, підвал, сторінка «Контакти»)
         file: data/contacts.yaml
@@ -283,7 +287,7 @@ collections:
               - { label: Заголовок, name: title, widget: string }
               - { label: Фон (десктоп), name: backgroundImage, widget: image, required: false }
               - { label: Фон (мобільний), name: backgroundImageMobile, widget: image, required: false }
-          - label: Форма «Зв'яжіться з нами»
+          - label: Форма «Зв'яжіться з нами» (тексти цієї сторінки)
             name: contactCta
             widget: object
             collapsed: true

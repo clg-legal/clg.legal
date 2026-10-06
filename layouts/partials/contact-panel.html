@@ -1,4 +1,6 @@
-{{ $form := .form }}
+{{/* Shared settings (data/contact_form.yaml) are the base; keys set on the page/shortcode override them. */}}
+{{ $form := merge site.Data.contact_form .form }}
+{{ $whatsappUrl := $form.social.whatsappUrl | default (printf "https://wa.me/%s" (strings.TrimPrefix "+" site.Data.contacts.phonePrimary)) }}
 {{ $titleId := .titleId | default "cases-cta-form-title" }}
 {{ $idPrefix := .idPrefix | default "cases" }}
 <div class="cases-cta__panel"{{ with .panelId }} id="{{ . }}"{{ end }}>
@@ -21,7 +23,7 @@
       <div class="cases-cta__social-links">
         <a
           class="cases-cta__social-link"
-          href="{{ $form.social.whatsappUrl }}"
+          href="{{ $whatsappUrl }}"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"

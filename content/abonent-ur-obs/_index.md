@@ -76,23 +76,7 @@ casesCta:
     titleLines:
       - "Це не всі послуги, які ми надаємо"
     lead: "Не знайшли потрібну послугу? Залиште заявку і ми проведемо для вас індивідуальну консультацію."
-    namePlaceholder: "Введіть імʼя"
-    phonePlaceholder: "+38 (000) 000-00-00"
-    personTypes:
-      - "Фізична / юридична особа"
-      - "Фізична особа"
-      - "Юридична особа"
-    privacyText: "Я погоджуюсь з"
-    privacyUrl: "/privacy-policy/"
     submitText: "Маю схожий запит"
-    social:
-      titleLines:
-        - "Напишіть юристу безпосередньо"
-        - "у WhatsApp або Telegram"
-      whatsappUrl: "https://wa.me/380501055115"
-      telegramUrl: "https://t.me/"
-      whatsappIcon: "/images/social-whatsapp.jpg"
-      telegramIcon: "/images/social-telegram.jpg"
   statueImage: "/images/case-lawyer.png"
 
 faq:

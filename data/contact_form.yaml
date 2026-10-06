@@ -1,0 +1,15 @@
+namePlaceholder: Введіть імʼя
+phonePlaceholder: +38 (000) 000-00-00
+personTypes:
+- Фізична / юридична особа
+- Фізична особа
+- Юридична особа
+privacyText: Я погоджуюсь з
+privacyUrl: /privacy-policy/
+social:
+  titleLines:
+  - Напишіть юристу безпосередньо
+  - у WhatsApp або Telegram
+  telegramUrl: https://t.me/
+  whatsappIcon: /images/social-whatsapp.jpg
+  telegramIcon: /images/social-telegram.jpg
