@@ -62,9 +62,10 @@ collections:
         name: seo
         widget: object
         collapsed: true
-        fields:
+        fields: &seo_fields
           - { label: SEO title, name: title, widget: string, required: false }
           - { label: SEO description, name: description, widget: text, required: false }
+          - { label: Картинка для соцмереж (og:image), name: ogImage, widget: image, required: false }
           - label: Robots
             name: robots
             widget: select
@@ -104,3 +105,219 @@ collections:
             options: ["index, follow", "noindex, nofollow"]
             default: "index, follow"
             required: false
+
+  # ---------- Сторінки практик ----------
+  - name: practices
+    label: Сторінки практик
+    label_singular: Сторінка практики
+    folder: content
+    create: true
+    # Кожна сторінка — content/<slug>/_index.md, відбираються лише ті, де layout: service
+    path: "{{slug}}/_index"
+    filter: { field: layout, value: service }
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    summary: "{{title}}"
+    fields:
+      - { label: Назва, name: title, widget: string }
+      - label: Slug (адреса сторінки)
+        name: slug
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Тільки латиниця, цифри та дефіси"]
+        hint: "Латиницею через дефіс. Для наявних сторінок не змінювати — зміниться URL."
+      - { label: Короткий опис, name: description, widget: text }
+      - { label: Layout, name: layout, widget: hidden, default: service }
+      - { label: Styles, name: styles, widget: hidden, default: ["pages/service"] }
+      - { label: Scripts, name: scripts, widget: hidden, default: ["pages/service"] }
+      - { label: Body class, name: bodyClass, widget: hidden, default: "page-service" }
+      - { label: SEO, name: seo, widget: object, collapsed: true, fields: *seo_fields }
+      - label: Верхній блок
+        name: serviceHero
+        widget: object
+        collapsed: true
+        fields:
+          - { label: Назва в хлібних крихтах, name: breadcrumbCurrent, widget: string }
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Підзаголовок, name: lead, widget: text, required: false }
+          - { label: Фон (десктоп), name: backgroundImage, widget: image, required: false }
+          - { label: Фон (мобільний), name: backgroundImageMobile, widget: image, required: false }
+      - label: Основний текст і блок «Контакт»
+        name: serviceIntro
+        widget: object
+        collapsed: true
+        fields:
+          - { label: Головна картинка, name: image, widget: image, required: false }
+          - { label: Картинка бічної панелі, name: sidebarImage, widget: image, required: false }
+          - { label: Іконка блоку «Контакт», name: contactIcon, widget: image, required: false }
+          - { label: Бейдж, name: contactBadge, widget: string, required: false }
+          - { label: Заголовок блоку, name: contactTitle, widget: string, required: false }
+          - { label: Текст блоку, name: contactText, widget: text, required: false }
+          - { label: Текст кнопки, name: contactButtonText, widget: string, required: false }
+          - { label: Посилання кнопки, name: contactButtonUrl, widget: string, required: false }
+          - { label: Вступні абзаци, name: prefaceParagraphs, widget: list, required: false, field: { label: Абзац, name: p, widget: text } }
+          - { label: Абзаци (основний текст), name: paragraphs, widget: list, required: false, field: { label: Абзац, name: p, widget: text } }
+          - { label: Абзаци (бічна колонка), name: asideParagraphs, widget: list, required: false, field: { label: Абзац, name: p, widget: text } }
+          - { label: Пункти списку, name: listItems, widget: list, required: false, field: { label: Пункт, name: p, widget: text } }
+          - { label: Завершальні абзаци, name: closingParagraphs, widget: list, required: false, field: { label: Абзац, name: p, widget: text } }
+
+      - label: Кейси (блок на сторінці)
+        name: casesCta
+        widget: object
+        collapsed: true
+        fields: &cases_fields
+          - { label: Водяний знак, name: watermarkImage, widget: image, required: false }
+          - label: Промо-блок
+            name: promo
+            widget: object
+            fields:
+              - { label: Надпис, name: label, widget: string }
+              - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+              - { label: Текст кнопки, name: buttonText, widget: string }
+              - { label: Посилання кнопки, name: buttonUrl, widget: string }
+              - { label: Картинка щита, name: shieldImage, widget: image, required: false }
+          - label: Кейси
+            name: items
+            widget: list
+            summary: "{{fields.name}} — {{fields.title}}"
+            fields:
+              - { label: Імʼя юриста, name: name, widget: string }
+              - { label: Посада, name: role, widget: string }
+              - { label: Фото, name: photo, widget: image }
+              - { label: Заголовок кейсу, name: title, widget: string }
+              - { label: Підпис «Інформація», name: infoLabel, widget: string }
+              - { label: Інформація про справу, name: info, widget: text }
+              - { label: Підпис «Рішення», name: solutionLabel, widget: string }
+              - { label: Рішення проблеми, name: solution, widget: text }
+          - label: Форма заявки
+            name: form
+            widget: object
+            fields: &form_fields
+              - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+              - { label: Підзаголовок, name: lead, widget: text }
+              - { label: Плейсхолдер імені, name: namePlaceholder, widget: string }
+              - { label: Плейсхолдер телефону, name: phonePlaceholder, widget: string }
+              - { label: Варіанти типу особи, name: personTypes, widget: list, field: { label: Варіант, name: v, widget: string } }
+              - { label: Текст згоди, name: privacyText, widget: string }
+              - { label: Посилання на політику, name: privacyUrl, widget: string }
+              - { label: Текст кнопки, name: submitText, widget: string }
+              - label: Соцмережі
+                name: social
+                widget: object
+                fields:
+                  - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+                  - { label: Посилання WhatsApp, name: whatsappUrl, widget: string }
+                  - { label: Посилання Telegram, name: telegramUrl, widget: string }
+                  - { label: Іконка WhatsApp, name: whatsappIcon, widget: image, required: false }
+                  - { label: Іконка Telegram, name: telegramIcon, widget: image, required: false }
+          - { label: Картинка (статуя), name: statueImage, widget: image, required: false }
+      - label: Часті запитання
+        name: faq
+        widget: object
+        collapsed: true
+        fields: &faq_fields
+          - label: Запитання
+            name: items
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: Запитання, name: question, widget: string }
+              - { label: Відповідь (абзаци), name: paragraphs, widget: list, field: { label: Абзац, name: p, widget: text } }
+
+  # ---------- Спільні блоки (команда і контакти діють на всіх сторінках) ----------
+  - name: shared
+    label: Спільні блоки
+    files:
+      - name: team
+        label: Команда (усі сторінки)
+        file: data/team.yaml
+        fields:
+          - { label: Заголовок (рядки), name: titleLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+          - label: Учасники
+            name: members
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: Імʼя, name: name, widget: string }
+              - { label: Посада, name: role, widget: string }
+              - { label: Фото, name: photo, widget: image }
+              - { label: Відсоток виграних справ, name: winRate, widget: string }
+              - { label: Досвід, name: experience, widget: string }
+              - { label: Текст кнопки, name: buttonText, widget: string }
+              - { label: Посилання кнопки, name: buttonUrl, widget: string }
+      - name: contacts_data
+        label: Контакти — адреса, телефони, email (шапка, підвал, сторінка «Контакти»)
+        file: data/contacts.yaml
+        fields:
+          - { label: "Телефон 1 (для tel:, без пробілів)", name: phonePrimary, widget: string, hint: "Наприклад: +380501055115" }
+          - { label: Телефон 1 (як показується), name: phonePrimaryDisplay, widget: string }
+          - { label: "Телефон 2 (для tel:)", name: phoneSecondary, widget: string }
+          - { label: Телефон 2 (як показується), name: phoneSecondaryDisplay, widget: string }
+          - { label: Адреса (одним рядком), name: address, widget: string }
+          - { label: Адреса (по рядках), name: addressLines, widget: list, field: { label: Рядок, name: line, widget: string } }
+          - { label: Посилання на маршрут (Google Maps), name: addressUrl, widget: string }
+          - { label: Посилання для вбудованої мапи (embed), name: mapEmbedUrl, widget: text }
+          - { label: Email, name: email, widget: string }
+
+  # ---------- Окремі сторінки ----------
+  - name: single_pages
+    label: Окремі сторінки
+    files:
+      - name: contacts_page
+        label: Сторінка «Контакти»
+        file: content/contacts/_index.md
+        fields:
+          - { label: Назва, name: title, widget: string }
+          - { label: Короткий опис, name: description, widget: text }
+          - { label: Layout, name: layout, widget: hidden }
+          - { label: Styles, name: styles, widget: hidden }
+          - { label: Scripts, name: scripts, widget: hidden }
+          - { label: Body class, name: bodyClass, widget: hidden }
+          - { label: SEO, name: seo, widget: object, collapsed: true, fields: *seo_fields }
+          - label: Верхній блок
+            name: serviceHero
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Назва в хлібних крихтах, name: breadcrumbCurrent, widget: string }
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Фон (десктоп), name: backgroundImage, widget: image, required: false }
+              - { label: Фон (мобільний), name: backgroundImageMobile, widget: image, required: false }
+          - label: Форма «Зв'яжіться з нами»
+            name: contactCta
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Водяний знак, name: watermarkImage, widget: image, required: false }
+              - { label: Картинка (статуя), name: statueImage, widget: image, required: false }
+              - { label: Форма, name: form, widget: object, fields: *form_fields }
+      - name: home_page
+        label: Головна — картки послуг, кейси та FAQ
+        file: content/_index.md
+        fields:
+          - label: Картки послуг
+            name: practices
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Заголовок блоку, name: title, widget: string }
+              - label: Картки (завжди 8; можна змінити текст, сторінку та порядок)
+                name: items
+                widget: list
+                min: 8
+                max: 8
+                allow_add: false
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Заголовок картки, name: title, widget: string }
+                  - { label: Жирний початок тексту, name: lead, widget: string, required: false }
+                  - { label: Текст картки, name: text, widget: text }
+                  - label: Сторінка, на яку веде картка
+                    name: page
+                    widget: relation
+                    collection: practices
+                    search_fields: ["title"]
+                    value_field: slug
+                    display_fields: ["title"]
+          - { label: Кейси на головній, name: casesCta, widget: object, collapsed: true, fields: *cases_fields }
+          - { label: Часті запитання, name: faq, widget: object, collapsed: true, fields: *faq_fields }

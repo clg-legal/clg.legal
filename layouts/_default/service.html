@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ partial "service-hero.html" . }}
   {{ partial "service-intro.html" . }}
-  {{ partial "cases-cta.html" . }}
+  {{ with .Params.casesCta }}{{ partial "cases-cta.html" $ }}{{ end }}
   {{ partial "team.html" . }}
-  {{ partial "faq.html" . }}
+  {{ with .Params.faq }}{{ partial "faq.html" $ }}{{ end }}
 {{ end }}

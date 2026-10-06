@@ -1,5 +1,6 @@
 ---
 title: "Представництво та захист інтересів в судах всіх юрисдикцій та інстанцій"
+slug: "predstavnytstvo-zahist-interesiv-v-sydah-vid-yorisdikciy-instanciy"
 description: "Ведення судових справ — комплексний супровід спорів, представництво та захист інтересів у судах всіх юрисдикцій та інстанцій."
 
 layout: service
@@ -89,47 +90,6 @@ casesCta:
       whatsappIcon: "/images/social-whatsapp.jpg"
       telegramIcon: "/images/social-telegram.jpg"
   statueImage: "/images/case-lawyer.png"
-
-team:
-  titleLines:
-    - "Експерти в юриспруденції"
-    - "з великим стажем"
-  members:
-    - name: "Забавський Дмитро"
-      role: "Голова обʼєднання, Керуючий партнер"
-      photo: "/images/team/team-zabavsky.jpg"
-      winRate: "99% виграних справ"
-      experience: "Досвід: 25 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Журавель Руслана"
-      role: "Адвокат, Старший партнер"
-      photo: "/images/team/team-zhuravel.png"
-      winRate: "95% виграних справ"
-      experience: "Досвід: 11 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Голумбовський Дмитро"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-holumbovsky.png"
-      winRate: "93% виграних справ"
-      experience: "Досвід: 8 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Старцун Вадим"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-starcun.png"
-      winRate: "95% виграних справ"
-      experience: "Досвід: 9 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Антипенко Михайло"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-antypenko.png"
-      winRate: "92% виграних справ"
-      experience: "Досвід: 7 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
 
 faq:
   items:

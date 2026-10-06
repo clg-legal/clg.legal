@@ -1,4 +1,4 @@
-{{ $block := .Params.team }}
+{{ $block := .Params.team | default site.Data.team }}
 <section class="team" aria-labelledby="team-title">
   <div class="team__header">
     <div class="team__header-decor" aria-hidden="true"></div>

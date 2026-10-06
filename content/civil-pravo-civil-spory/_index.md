@@ -1,5 +1,6 @@
 ---
 title: "Цивільне право, Цивільні спори"
+slug: "civil-pravo-civil-spory"
 description: "Цивільне право і процес — надаємо повний спектр послуг із захисту прав, підготовки документів та ведення цивільних справ у судах."
 
 layout: service
@@ -87,47 +88,6 @@ casesCta:
       whatsappIcon: "/images/social-whatsapp.jpg"
       telegramIcon: "/images/social-telegram.jpg"
   statueImage: "/images/case-lawyer.png"
-
-team:
-  titleLines:
-    - "Експерти в юриспруденції"
-    - "з великим стажем"
-  members:
-    - name: "Забавський Дмитро"
-      role: "Голова обʼєднання, Керуючий партнер"
-      photo: "/images/team/team-zabavsky.jpg"
-      winRate: "99% виграних справ"
-      experience: "Досвід: 25 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Журавель Руслана"
-      role: "Адвокат, Старший партнер"
-      photo: "/images/team/team-zhuravel.png"
-      winRate: "95% виграних справ"
-      experience: "Досвід: 11 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Голумбовський Дмитро"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-holumbovsky.png"
-      winRate: "93% виграних справ"
-      experience: "Досвід: 8 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Старцун Вадим"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-starcun.png"
-      winRate: "95% виграних справ"
-      experience: "Досвід: 9 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
-    - name: "Антипенко Михайло"
-      role: "Адвокат, партнер"
-      photo: "/images/team/team-antypenko.png"
-      winRate: "92% виграних справ"
-      experience: "Досвід: 7 років"
-      buttonText: "Отримати консультацію"
-      buttonUrl: "/contacts/"
 
 faq:
   items:

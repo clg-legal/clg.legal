@@ -39,13 +39,13 @@
       <div class="site-header__meta">
         <img src="{{ "/images/logo.png" | relURL }}" class="logo-menu" width="180" height="120" alt="{{ .Site.Title }}" decoding="async">
 
-        <a class="site-header__address" href="{{ .Site.Params.addressUrl }}" target="_blank" rel="noopener noreferrer">
-          {{ .Site.Params.address }}
+        <a class="site-header__address" href="{{ .Site.Data.contacts.addressUrl }}" target="_blank" rel="noopener noreferrer">
+          {{ .Site.Data.contacts.address }}
         </a>
 
         <div class="site-header__phones" aria-label="Телефони">
-          <a class="site-header__phone" href="tel:{{ .Site.Params.phonePrimary }}">{{ .Site.Params.phonePrimaryDisplay }}</a>
-          <a class="site-header__phone site-header__phone--secondary" href="tel:{{ .Site.Params.phoneSecondary }}">{{ .Site.Params.phoneSecondaryDisplay }}</a>
+          <a class="site-header__phone" href="tel:{{ .Site.Data.contacts.phonePrimary }}">{{ .Site.Data.contacts.phonePrimaryDisplay }}</a>
+          <a class="site-header__phone site-header__phone--secondary" href="tel:{{ .Site.Data.contacts.phoneSecondary }}">{{ .Site.Data.contacts.phoneSecondaryDisplay }}</a>
         </div>
 
         <a class="site-header__cta btn btn--primary" href="{{ "/" | relLangURL }}#consultation">Записатись на консультацію</a>

@@ -10,8 +10,8 @@
   {{ partial "about.html" . }}
   {{ partial "practices.html" . }}
   {{ partial "partnership.html" . }}
-  {{ partial "cases-cta.html" . }}
+  {{ with .Params.casesCta }}{{ partial "cases-cta.html" $ }}{{ end }}
   {{ partial "client-care.html" . }}
   {{ partial "team.html" . }}
-  {{ partial "faq.html" . }}
+  {{ with .Params.faq }}{{ partial "faq.html" $ }}{{ end }}
 {{ end }}

@@ -28,22 +28,22 @@
       <div class="site-footer__contacts">
         <a
           class="site-footer__address"
-          href="{{ .Site.Params.addressUrl }}"
+          href="{{ .Site.Data.contacts.addressUrl }}"
           target="_blank"
           rel="noopener noreferrer"
         >
-          {{ range .Site.Params.addressLines }}
+          {{ range .Site.Data.contacts.addressLines }}
             <span class="site-footer__address-line">{{ . }}</span>
           {{ end }}
         </a>
 
         <p class="site-footer__phones">
-          <a href="tel:{{ .Site.Params.phonePrimary }}">{{ .Site.Params.phonePrimaryDisplay }}</a><br />
-          <a href="tel:{{ .Site.Params.phoneSecondary }}">{{ .Site.Params.phoneSecondaryDisplay }}</a>
+          <a href="tel:{{ .Site.Data.contacts.phonePrimary }}">{{ .Site.Data.contacts.phonePrimaryDisplay }}</a><br />
+          <a href="tel:{{ .Site.Data.contacts.phoneSecondary }}">{{ .Site.Data.contacts.phoneSecondaryDisplay }}</a>
         </p>
 
         <p class="site-footer__email">
-          <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+          <a href="mailto:{{ .Site.Data.contacts.email }}">{{ .Site.Data.contacts.email }}</a>
         </p>
       </div>
     </div>

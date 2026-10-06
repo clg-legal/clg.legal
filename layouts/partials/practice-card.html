@@ -1,3 +1,5 @@
+{{ $url := .url }}
+{{ with .page }}{{ with site.GetPage (printf "/%s" .) }}{{ $url = .RelPermalink }}{{ end }}{{ end }}
 <article class="practice-card">
   <div class="practice-card__layer practice-card__layer--back" aria-hidden="true"></div>
   <div class="practice-card__layer practice-card__layer--middle" aria-hidden="true"></div>
@@ -11,7 +13,7 @@
       {{ with .lead }}<strong>{{ . }}</strong> {{ end }}{{ .text }}
     </p>
 
-    <a class="practice-card__link" href="{{ .url | relLangURL }}">
+    <a class="practice-card__link" href="{{ $url | relLangURL }}">
       Детальніше <span aria-hidden="true">↗</span>
     </a>
   </div>

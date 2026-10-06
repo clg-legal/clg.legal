@@ -3,8 +3,8 @@
     <div class="contact-info__map">
       <iframe
         class="contact-info__map-frame"
-        src="{{ .Site.Params.mapEmbedUrl }}"
-        title="{{ .Site.Params.address }}"
+        src="{{ .Site.Data.contacts.mapEmbedUrl }}"
+        title="{{ .Site.Data.contacts.address }}"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
@@ -27,11 +27,11 @@
           <p class="contact-info__label">Адреса</p>
           <a
             class="contact-info__value"
-            href="{{ .Site.Params.addressUrl }}"
+            href="{{ .Site.Data.contacts.addressUrl }}"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {{ range .Site.Params.addressLines }}
+            {{ range .Site.Data.contacts.addressLines }}
             <span class="contact-info__value-line">{{ . }}</span>
             {{ end }}
           </a>
@@ -51,8 +51,8 @@
         </span>
         <div class="contact-info__body">
           <p class="contact-info__label">Телефон</p>
-          <a class="contact-info__value" href="tel:{{ .Site.Params.phonePrimary }}">{{ .Site.Params.phonePrimaryDisplay }}</a>
-          <a class="contact-info__value" href="tel:{{ .Site.Params.phoneSecondary }}">{{ .Site.Params.phoneSecondaryDisplay }}</a>
+          <a class="contact-info__value" href="tel:{{ .Site.Data.contacts.phonePrimary }}">{{ .Site.Data.contacts.phonePrimaryDisplay }}</a>
+          <a class="contact-info__value" href="tel:{{ .Site.Data.contacts.phoneSecondary }}">{{ .Site.Data.contacts.phoneSecondaryDisplay }}</a>
         </div>
       </li>
 
@@ -75,7 +75,7 @@
         </span>
         <div class="contact-info__body">
           <p class="contact-info__label">Email</p>
-          <a class="contact-info__value" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+          <a class="contact-info__value" href="mailto:{{ .Site.Data.contacts.email }}">{{ .Site.Data.contacts.email }}</a>
         </div>
       </li>
     </ul>
