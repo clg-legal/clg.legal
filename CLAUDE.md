@@ -32,7 +32,7 @@ Production build:
 ```bash
 hugo --minify
 ```
-CI (`.github/workflows/hugo-pages.yml`) builds with `hugo --gc --minify --baseURL "<pages-url>/"` and deploys `public/` to GitHub Pages on push to `main`.
+Deployed on Netlify (`netlify.toml`): builds with `hugo --gc --minify -b $URL` (previews use `$DEPLOY_PRIME_URL`), Hugo pinned via `HUGO_VERSION = "0.148.2"`. The old GitHub Pages workflow was removed.
 
 There is no JS/CSS package manager, linter, or test suite in this repo (no `package.json`) — Hugo Pipes (`css.Sass`, `js.Build`) does all asset processing directly from `assets/`.
 
