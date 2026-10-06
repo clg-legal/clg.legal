@@ -2,9 +2,8 @@ backend:
   name: github
   repo: clg-legal/clg.legal
   branch: main
-  # TODO: для OAuth через Netlify розкоментувати (див. інструкцію)
-  # base_url: https://api.netlify.com
-  # auth_endpoint: auth
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 # Працює лише на localhost: запускається разом із `npx decap-server`
 local_backend: true
