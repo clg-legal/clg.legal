@@ -1,9 +1,7 @@
-{{ $image := .Resources.GetMatch (.Params.image | default "") }}
-{{ $bgURL := "" }}
-{{ with $image }}{{ $bgURL = .RelPermalink }}{{ end }}
+{{ $images := partial "post-hero-images.html" . }}
 {{ $category := "" }}
 {{ with .GetTerms "category" }}{{ $category = index . 0 }}{{ end }}
-<section class="post-hero" style="--post-hero-bg: url('{{ $bgURL }}')">
+<section class="post-hero"{{ with $images.desktop }} style="--post-hero-bg: url('{{ .RelPermalink }}'); --post-hero-bg-mobile: url('{{ $images.mobile.RelPermalink }}');"{{ end }}>
   <div class="post-hero__media" aria-hidden="true"></div>
   <div class="post-hero__container">
     <nav class="post-hero__breadcrumb" aria-label="Breadcrumb">

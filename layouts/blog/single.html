@@ -1,3 +1,12 @@
+{{ define "head-extra" }}
+  {{/* Hero cover is a CSS background (discovered late); preload only the size the viewport will use. Breakpoint matches $breakpoint-md in _post-hero.scss. */}}
+  {{ $images := partial "post-hero-images.html" . }}
+  {{ with $images.desktop }}
+    <link rel="preload" as="image" href="{{ $images.mobile.RelPermalink }}" media="(max-width: 766px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ .RelPermalink }}" media="(min-width: 767px)" fetchpriority="high">
+  {{ end }}
+{{ end }}
+
 {{ define "main" }}
   {{ partial "post-hero.html" . }}
   <article class="post-body">

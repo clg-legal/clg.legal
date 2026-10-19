@@ -1,0 +1,13 @@
+{{/* Post cover resized to WebP for the post hero: returns dict "desktop"/"mobile" (resources), empty if the post has no processable cover. Used by both post-hero.html and the preload in blog/single.html. */}}
+{{ $out := dict }}
+{{ with .Resources.GetMatch (.Params.image | default "") }}
+  {{ if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") }}
+    {{ $desktopW := cond (gt .Width 1920) 1920 .Width }}
+    {{ $mobileW := cond (gt .Width 800) 800 .Width }}
+    {{ $out = dict
+      "desktop" (.Resize (printf "%dx webp q80" $desktopW))
+      "mobile" (.Resize (printf "%dx webp q75" $mobileW))
+    }}
+  {{ end }}
+{{ end }}
+{{ return $out }}

@@ -19,8 +19,12 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: var(--post-hero-bg);
+  background-image: var(--post-hero-bg-mobile, var(--post-hero-bg, none));
   background-position: center center;
+
+  @include respond-up($breakpoint-md) {
+    background-image: var(--post-hero-bg, none);
+  }
   background-repeat: no-repeat;
   background-size: cover;
 
