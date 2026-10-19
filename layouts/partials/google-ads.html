@@ -1,0 +1,13 @@
+{{/* Google Ads tag (site.Params.googleAds). Conversion labels are exposed as window.clgAds for assets/js/components/ads-tracking.js. */}}
+{{ with site.Params.googleAds }}
+  {{ if and hugo.IsProduction (eq (urls.Parse site.BaseURL).Host .host) }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', {{ .id }});
+      window.clgAds = {{ dict "formConversion" .formConversion "phoneConversion" .phoneConversion }};
+    </script>
+  {{ end }}
+{{ end }}

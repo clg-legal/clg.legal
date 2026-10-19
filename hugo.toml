@@ -7,6 +7,14 @@ title = 'Concordis Legal Group'
 [params]
   description = 'Юридичні консультації для бізнесу та приватних осіб. Професійний юридичний захист від Concordis Legal Group.'
 
+# Google Ads (перенесено з WordPress). Тег вантажиться лише в production-збірці для домену `host`,
+# щоб тестові заявки з deploy preview / netlify.app не рахувались як конверсії.
+[params.googleAds]
+  id = 'AW-18501245387'
+  host = 'clg.legal'
+  formConversion = 'AW-18501245387/jrJ-CNyBoJkdEMuzivZE'
+  phoneConversion = 'AW-18501245387/lLT5CN-BoJkdEMuzivZE'
+
 [[menus.main]]
   name = 'Головна'
   url = '/'

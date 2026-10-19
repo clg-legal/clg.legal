@@ -1,6 +1,8 @@
 // Shared helpers for Netlify Forms: status messages and fetch submission.
 // Message texts live in a hidden [data-form-messages] block inside the form (data/contact_form.yaml).
 
+import { trackFormConversion } from './ads-tracking.js';
+
 function getMessage(form, key) {
   const node = form.querySelector(`[data-form-messages] [data-msg="${key}"]`);
   return node ? node.textContent.trim() : '';
@@ -53,6 +55,7 @@ export async function submitForm(form) {
 
     form.reset();
     showStatus(form, 'success', 'success');
+    trackFormConversion();
   } catch (error) {
     console.error(error);
     showStatus(form, 'error', 'error');
